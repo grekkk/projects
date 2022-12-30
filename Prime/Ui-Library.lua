@@ -11,7 +11,7 @@ local tag
 local userinfo = {}
 
 pcall(function()
-	userinfo = HttpService:JSONDecode(readfile("Prime/UserInfo.txt"));
+	userinfo = HttpService:JSONDecode(readfile("Prime\UserInfo.txt"));
 end)
 
 pfp = userinfo["pfp"] or "https://www.roblox.com/headshot-thumbnail/image?userId=".. game.Players.LocalPlayer.UserId .."&width=420&height=420&format=png"
@@ -22,7 +22,7 @@ local function SaveInfo()
 	userinfo["pfp"] = pfp
 	userinfo["user"] = user
 	userinfo["tag"] = tag
-	writefile("Prime/UserInfo.txt", HttpService:JSONEncode(userinfo));
+	writefile("Prime\UserInfo.txt", HttpService:JSONEncode(userinfo));
 end
 
 local function MakeDraggable(topbarobject, object)
