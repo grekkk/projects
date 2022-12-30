@@ -88,7 +88,7 @@ Discord.Parent = game.CoreGui
 Discord.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 function Library:Window(text)
-	local currentservertoggled = ""
+	local currentTabtoggled = ""
 	local minimized = false
 	local fs = false
 	local settingsopened = false
@@ -99,7 +99,7 @@ function Library:Window(text)
 	local CloseIcon = Instance.new("ImageLabel")
 	local MinimizeBtn = Instance.new("TextButton")
 	local MinimizeIcon = Instance.new("ImageLabel")
-	local ServersHolder = Instance.new("Folder")
+	local TabsHolder = Instance.new("Folder")
 	local Userpad = Instance.new("Frame")
 	local UserIcon = Instance.new("Frame")
 	local UserIconCorner = Instance.new("UICorner")
@@ -107,10 +107,10 @@ function Library:Window(text)
 	local UserCircleImage = Instance.new("ImageLabel")
 	local UserName = Instance.new("TextLabel")
 	local UserTag = Instance.new("TextLabel")
-	local ServersHoldFrame = Instance.new("Frame")
-	local ServersHold = Instance.new("ScrollingFrame")
-	local ServersHoldLayout = Instance.new("UIListLayout")
-	local ServersHoldPadding = Instance.new("UIPadding")
+	local TabsHoldFrame = Instance.new("Frame")
+	local TabsHold = Instance.new("ScrollingFrame")
+	local TabsHoldLayout = Instance.new("UIListLayout")
+	local TabsHoldPadding = Instance.new("UIPadding")
 	local TopFrameHolder = Instance.new("Frame")
 
 	MainFrame.Name = "MainFrame"
@@ -207,8 +207,8 @@ function Library:Window(text)
 	MinimizeIcon.Image = "http://www.roblox.com/asset/?id=6035067836"
 	MinimizeIcon.ImageColor3 = Color3.fromRGB(220, 221, 222)
 
-	ServersHolder.Name = "ServersHolder"
-	ServersHolder.Parent = TopFrameHolder
+	TabsHolder.Name = "TabsHolder"
+	TabsHolder.Parent = TopFrameHolder
 
 	Userpad.Name = "Userpad"
 	Userpad.Parent = TopFrameHolder
@@ -272,32 +272,32 @@ function Library:Window(text)
 	UserName.Text = user
 	UserTag.Text = "#" .. tag
 
-	ServersHoldFrame.Name = "ServersHoldFrame"
-	ServersHoldFrame.Parent = MainFrame
-	ServersHoldFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	ServersHoldFrame.BackgroundTransparency = 1.000
-	ServersHoldFrame.BorderColor3 = Color3.fromRGB(27, 42, 53)
-	ServersHoldFrame.Size = UDim2.new(0, 71, 0, 396)
+	TabsHoldFrame.Name = "TabsHoldFrame"
+	TabsHoldFrame.Parent = MainFrame
+	TabsHoldFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TabsHoldFrame.BackgroundTransparency = 1.000
+	TabsHoldFrame.BorderColor3 = Color3.fromRGB(27, 42, 53)
+	TabsHoldFrame.Size = UDim2.new(0, 71, 0, 396)
 
-	ServersHold.Name = "ServersHold"
-	ServersHold.Parent = ServersHoldFrame
-	ServersHold.Active = true
-	ServersHold.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	ServersHold.BackgroundTransparency = 1.000
-	ServersHold.BorderSizePixel = 0
-	ServersHold.Position = UDim2.new(-0.000359333731, 0, 0.0580808073, 0)
-	ServersHold.Size = UDim2.new(0, 71, 0, 373)
-	ServersHold.ScrollBarThickness = 1
-	ServersHold.ScrollBarImageTransparency = 1
-	ServersHold.CanvasSize = UDim2.new(0, 0, 0, 0)
+	TabsHold.Name = "TabsHold"
+	TabsHold.Parent = TabsHoldFrame
+	TabsHold.Active = true
+	TabsHold.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TabsHold.BackgroundTransparency = 1.000
+	TabsHold.BorderSizePixel = 0
+	TabsHold.Position = UDim2.new(-0.000359333731, 0, 0.0580808073, 0)
+	TabsHold.Size = UDim2.new(0, 71, 0, 373)
+	TabsHold.ScrollBarThickness = 1
+	TabsHold.ScrollBarImageTransparency = 1
+	TabsHold.CanvasSize = UDim2.new(0, 0, 0, 0)
 
-	ServersHoldLayout.Name = "ServersHoldLayout"
-	ServersHoldLayout.Parent = ServersHold
-	ServersHoldLayout.SortOrder = Enum.SortOrder.LayoutOrder
-	ServersHoldLayout.Padding = UDim.new(0, 7)
+	TabsHoldLayout.Name = "TabsHoldLayout"
+	TabsHoldLayout.Parent = TabsHold
+	TabsHoldLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	TabsHoldLayout.Padding = UDim.new(0, 7)
 
-	ServersHoldPadding.Name = "ServersHoldPadding"
-	ServersHoldPadding.Parent = ServersHold
+	TabsHoldPadding.Name = "TabsHoldPadding"
+	TabsHoldPadding.Parent = TabsHold
 
 	CloseBtn.MouseButton1Click:Connect(
 		function()
@@ -476,7 +476,7 @@ function Library:Window(text)
 	CloseSettingsBtn.MouseButton1Click:Connect(function()
 		settingsopened = false
 		TopFrameHolder.Visible = true
-		ServersHoldFrame.Visible = true
+		TabsHoldFrame.Visible = true
 		SettingsHolder:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
 		TweenService:Create(
 			Settings,
@@ -508,7 +508,7 @@ function Library:Window(text)
 				if settingsopened == true then
 					settingsopened = false
 					TopFrameHolder.Visible = true
-					ServersHoldFrame.Visible = true
+					TabsHoldFrame.Visible = true
 					SettingsHolder:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
 					TweenService:Create(
 						Settings,
@@ -1155,7 +1155,7 @@ function Library:Window(text)
 	SettingsOpenBtn.MouseButton1Click:Connect(function ()
 		settingsopened = true
 			TopFrameHolder.Visible = false
-			ServersHoldFrame.Visible = false
+			TabsHoldFrame.Visible = false
 			SettingsFrame.Visible = true
 			SettingsHolder:TweenSize(UDim2.new(0, 681, 0, 375), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
 			Settings.BackgroundTransparency = 1
@@ -1670,118 +1670,118 @@ function Library:Window(text)
 	end
 
 	MakeDraggable(TopFrame, MainFrame)
-	ServersHoldPadding.PaddingLeft = UDim.new(0, 14)
-	local ServerHold = {}
-	function ServerHold:Server(text, img)
+	TabsHoldPadding.PaddingLeft = UDim.new(0, 14)
+	local TabHold = {}
+	function TabHold:Tab(text, img)
 		local fc = false
-		local currentchanneltoggled = ""
-		local Server = Instance.new("TextButton")
-		local ServerBtnCorner = Instance.new("UICorner")
-		local ServerIco = Instance.new("ImageLabel")
-		local ServerWhiteFrame = Instance.new("Frame")
-		local ServerWhiteFrameCorner = Instance.new("UICorner")
+		local currentSectortoggled = ""
+		local Tab = Instance.new("TextButton")
+		local TabBtnCorner = Instance.new("UICorner")
+		local TabIco = Instance.new("ImageLabel")
+		local TabWhiteFrame = Instance.new("Frame")
+		local TabWhiteFrameCorner = Instance.new("UICorner")
 
-		Server.Name = text .. "Server"
-		Server.Parent = ServersHold
-		Server.BackgroundColor3 = Color3.fromRGB(47, 49, 54)
-		Server.Position = UDim2.new(0.125, 0, 0, 0)
-		Server.Size = UDim2.new(0, 47, 0, 47)
-		Server.AutoButtonColor = false
-		Server.Font = Enum.Font.Gotham
-		Server.Text = ""
-		Server.TextColor3 = Color3.fromRGB(255, 255, 255)
-		Server.TextSize = 18.000
+		Tab.Name = text .. "Tab"
+		Tab.Parent = TabsHold
+		Tab.BackgroundColor3 = Color3.fromRGB(47, 49, 54)
+		Tab.Position = UDim2.new(0.125, 0, 0, 0)
+		Tab.Size = UDim2.new(0, 47, 0, 47)
+		Tab.AutoButtonColor = false
+		Tab.Font = Enum.Font.Gotham
+		Tab.Text = ""
+		Tab.TextColor3 = Color3.fromRGB(255, 255, 255)
+		Tab.TextSize = 18.000
 
-		ServerBtnCorner.CornerRadius = UDim.new(1, 0)
-		ServerBtnCorner.Name = "ServerCorner"
-		ServerBtnCorner.Parent = Server
+		TabBtnCorner.CornerRadius = UDim.new(1, 0)
+		TabBtnCorner.Name = "TabCorner"
+		TabBtnCorner.Parent = Tab
 
-		ServerIco.Name = "ServerIco"
-		ServerIco.Parent = Server
-		ServerIco.AnchorPoint = Vector2.new(0.5, 0.5)
-		ServerIco.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		ServerIco.BackgroundTransparency = 1.000
-		ServerIco.Position = UDim2.new(0.489361703, 0, 0.489361703, 0)
-		ServerIco.Size = UDim2.new(0, 26, 0, 26)
-		ServerIco.Image = ""
+		TabIco.Name = "TabIco"
+		TabIco.Parent = Tab
+		TabIco.AnchorPoint = Vector2.new(0.5, 0.5)
+		TabIco.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TabIco.BackgroundTransparency = 1.000
+		TabIco.Position = UDim2.new(0.489361703, 0, 0.489361703, 0)
+		TabIco.Size = UDim2.new(0, 26, 0, 26)
+		TabIco.Image = ""
 
-		ServerWhiteFrame.Name = "ServerWhiteFrame"
-		ServerWhiteFrame.Parent = Server
-		ServerWhiteFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-		ServerWhiteFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		ServerWhiteFrame.Position = UDim2.new(-0.347378343, 0, 0.502659559, 0)
-		ServerWhiteFrame.Size = UDim2.new(0, 11, 0, 10)
+		TabWhiteFrame.Name = "TabWhiteFrame"
+		TabWhiteFrame.Parent = Tab
+		TabWhiteFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+		TabWhiteFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TabWhiteFrame.Position = UDim2.new(-0.347378343, 0, 0.502659559, 0)
+		TabWhiteFrame.Size = UDim2.new(0, 11, 0, 10)
 
-		ServerWhiteFrameCorner.CornerRadius = UDim.new(1, 0)
-		ServerWhiteFrameCorner.Name = "ServerWhiteFrameCorner"
-		ServerWhiteFrameCorner.Parent = ServerWhiteFrame
-		ServersHold.CanvasSize = UDim2.new(0, 0, 0, ServersHoldLayout.AbsoluteContentSize.Y)
+		TabWhiteFrameCorner.CornerRadius = UDim.new(1, 0)
+		TabWhiteFrameCorner.Name = "TabWhiteFrameCorner"
+		TabWhiteFrameCorner.Parent = TabWhiteFrame
+		TabsHold.CanvasSize = UDim2.new(0, 0, 0, TabsHoldLayout.AbsoluteContentSize.Y)
 
-		local ServerFrame = Instance.new("Frame")
-		local ServerFrame1 = Instance.new("Frame")
-		local ServerFrame2 = Instance.new("Frame")
-		local ServerTitleFrame = Instance.new("Frame")
-		local ServerTitle = Instance.new("TextLabel")
+		local TabFrame = Instance.new("Frame")
+		local TabFrame1 = Instance.new("Frame")
+		local TabFrame2 = Instance.new("Frame")
+		local TabTitleFrame = Instance.new("Frame")
+		local TabTitle = Instance.new("TextLabel")
 		local GlowFrame = Instance.new("Frame")
 		local Glow = Instance.new("ImageLabel")
-		local ServerContentFrame = Instance.new("Frame")
-		local ServerCorner = Instance.new("UICorner")
-		local ChannelTitleFrame = Instance.new("Frame")
+		local TabContentFrame = Instance.new("Frame")
+		local TabCorner = Instance.new("UICorner")
+		local SectorTitleFrame = Instance.new("Frame")
 		local Hashtag = Instance.new("TextLabel")
-		local ChannelTitle = Instance.new("TextLabel")
-		local ChannelContentFrame = Instance.new("Frame")
-		local GlowChannel = Instance.new("ImageLabel")
-		local ServerChannelHolder = Instance.new("ScrollingFrame")
-		local ServerChannelHolderLayout = Instance.new("UIListLayout")
-		local ServerChannelHolderPadding = Instance.new("UIPadding")
+		local SectorTitle = Instance.new("TextLabel")
+		local SectorContentFrame = Instance.new("Frame")
+		local GlowSector = Instance.new("ImageLabel")
+		local TabSectorHolder = Instance.new("ScrollingFrame")
+		local TabSectorHolderLayout = Instance.new("UIListLayout")
+		local TabSectorHolderPadding = Instance.new("UIPadding")
 
 
-		ServerFrame.Name = "ServerFrame"
-		ServerFrame.Parent = ServersHolder
-		ServerFrame.BackgroundColor3 = Color3.fromRGB(47, 49, 54)
-		ServerFrame.BorderSizePixel = 0
-		ServerFrame.ClipsDescendants = true
-		ServerFrame.Position = UDim2.new(0.105726875, 0, 1.01262593, 0)
-		ServerFrame.Size = UDim2.new(0, 609, 0, 373)
-		ServerFrame.Visible = false
+		TabFrame.Name = "TabFrame"
+		TabFrame.Parent = TabsHolder
+		TabFrame.BackgroundColor3 = Color3.fromRGB(47, 49, 54)
+		TabFrame.BorderSizePixel = 0
+		TabFrame.ClipsDescendants = true
+		TabFrame.Position = UDim2.new(0.105726875, 0, 1.01262593, 0)
+		TabFrame.Size = UDim2.new(0, 609, 0, 373)
+		TabFrame.Visible = false
 
-		ServerFrame1.Name = "ServerFrame1"
-		ServerFrame1.Parent = ServerFrame
-		ServerFrame1.BackgroundColor3 = Color3.fromRGB(47, 49, 54)
-		ServerFrame1.BorderSizePixel = 0
-		ServerFrame1.Position = UDim2.new(0, 0, 0.972290039, 0)
-		ServerFrame1.Size = UDim2.new(0, 12, 0, 10)
+		TabFrame1.Name = "TabFrame1"
+		TabFrame1.Parent = TabFrame
+		TabFrame1.BackgroundColor3 = Color3.fromRGB(47, 49, 54)
+		TabFrame1.BorderSizePixel = 0
+		TabFrame1.Position = UDim2.new(0, 0, 0.972290039, 0)
+		TabFrame1.Size = UDim2.new(0, 12, 0, 10)
 
-		ServerFrame2.Name = "ServerFrame2"
-		ServerFrame2.Parent = ServerFrame
-		ServerFrame2.BackgroundColor3 = Color3.fromRGB(47, 49, 54)
-		ServerFrame2.BorderSizePixel = 0
-		ServerFrame2.Position = UDim2.new(0.980295539, 0, 0.972290039, 0)
-		ServerFrame2.Size = UDim2.new(0, 12, 0, 9)
+		TabFrame2.Name = "TabFrame2"
+		TabFrame2.Parent = TabFrame
+		TabFrame2.BackgroundColor3 = Color3.fromRGB(47, 49, 54)
+		TabFrame2.BorderSizePixel = 0
+		TabFrame2.Position = UDim2.new(0.980295539, 0, 0.972290039, 0)
+		TabFrame2.Size = UDim2.new(0, 12, 0, 9)
 
-		ServerTitleFrame.Name = "ServerTitleFrame"
-		ServerTitleFrame.Parent = ServerFrame
-		ServerTitleFrame.BackgroundColor3 = Color3.fromRGB(47, 49, 54)
-		ServerTitleFrame.BackgroundTransparency = 1.000
-		ServerTitleFrame.BorderSizePixel = 0
-		ServerTitleFrame.Position = UDim2.new(-0.0010054264, 0, -0.000900391256, 0)
-		ServerTitleFrame.Size = UDim2.new(0, 180, 0, 40)
+		TabTitleFrame.Name = "TabTitleFrame"
+		TabTitleFrame.Parent = TabFrame
+		TabTitleFrame.BackgroundColor3 = Color3.fromRGB(47, 49, 54)
+		TabTitleFrame.BackgroundTransparency = 1.000
+		TabTitleFrame.BorderSizePixel = 0
+		TabTitleFrame.Position = UDim2.new(-0.0010054264, 0, -0.000900391256, 0)
+		TabTitleFrame.Size = UDim2.new(0, 180, 0, 40)
 
-		ServerTitle.Name = "ServerTitle"
-		ServerTitle.Parent = ServerTitleFrame
-		ServerTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		ServerTitle.BackgroundTransparency = 1.000
-		ServerTitle.BorderSizePixel = 0
-		ServerTitle.Position = UDim2.new(0.0751359761, 0, 0, 0)
-		ServerTitle.Size = UDim2.new(0, 97, 0, 39)
-		ServerTitle.Font = Enum.Font.GothamSemibold
-		ServerTitle.Text = text
-		ServerTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
-		ServerTitle.TextSize = 15.000
-		ServerTitle.TextXAlignment = Enum.TextXAlignment.Left
+		TabTitle.Name = "TabTitle"
+		TabTitle.Parent = TabTitleFrame
+		TabTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TabTitle.BackgroundTransparency = 1.000
+		TabTitle.BorderSizePixel = 0
+		TabTitle.Position = UDim2.new(0.0751359761, 0, 0, 0)
+		TabTitle.Size = UDim2.new(0, 97, 0, 39)
+		TabTitle.Font = Enum.Font.GothamSemibold
+		TabTitle.Text = text
+		TabTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+		TabTitle.TextSize = 15.000
+		TabTitle.TextXAlignment = Enum.TextXAlignment.Left
 
 		GlowFrame.Name = "GlowFrame"
-		GlowFrame.Parent = ServerFrame
+		GlowFrame.Parent = TabFrame
 		GlowFrame.BackgroundColor3 = Color3.fromRGB(47, 49, 54)
 		GlowFrame.BackgroundTransparency = 1.000
 		GlowFrame.BorderSizePixel = 0
@@ -1801,27 +1801,27 @@ function Library:Window(text)
 		Glow.ScaleType = Enum.ScaleType.Slice
 		Glow.SliceCenter = Rect.new(20, 20, 280, 280)
 
-		ServerContentFrame.Name = "ServerContentFrame"
-		ServerContentFrame.Parent = ServerFrame
-		ServerContentFrame.BackgroundColor3 = Color3.fromRGB(47, 49, 54)
-		ServerContentFrame.BackgroundTransparency = 1.000
-		ServerContentFrame.BorderSizePixel = 0
-		ServerContentFrame.Position = UDim2.new(-0.0010054264, 0, 0.106338218, 0)
-		ServerContentFrame.Size = UDim2.new(0, 180, 0, 333)
+		TabContentFrame.Name = "TabContentFrame"
+		TabContentFrame.Parent = TabFrame
+		TabContentFrame.BackgroundColor3 = Color3.fromRGB(47, 49, 54)
+		TabContentFrame.BackgroundTransparency = 1.000
+		TabContentFrame.BorderSizePixel = 0
+		TabContentFrame.Position = UDim2.new(-0.0010054264, 0, 0.106338218, 0)
+		TabContentFrame.Size = UDim2.new(0, 180, 0, 333)
 
-		ServerCorner.CornerRadius = UDim.new(0, 9)
-		ServerCorner.Name = "ServerCorner"
-		ServerCorner.Parent = ServerFrame
+		TabCorner.CornerRadius = UDim.new(0, 9)
+		TabCorner.Name = "TabCorner"
+		TabCorner.Parent = TabFrame
 
-		ChannelTitleFrame.Name = "ChannelTitleFrame"
-		ChannelTitleFrame.Parent = ServerFrame
-		ChannelTitleFrame.BackgroundColor3 = Color3.fromRGB(54, 57, 63)
-		ChannelTitleFrame.BorderSizePixel = 0
-		ChannelTitleFrame.Position = UDim2.new(0.294561088, 0, -0.000900391256, 0)
-		ChannelTitleFrame.Size = UDim2.new(0, 429, 0, 40)
+		SectorTitleFrame.Name = "SectorTitleFrame"
+		SectorTitleFrame.Parent = TabFrame
+		SectorTitleFrame.BackgroundColor3 = Color3.fromRGB(54, 57, 63)
+		SectorTitleFrame.BorderSizePixel = 0
+		SectorTitleFrame.Position = UDim2.new(0.294561088, 0, -0.000900391256, 0)
+		SectorTitleFrame.Size = UDim2.new(0, 429, 0, 40)
 
 		Hashtag.Name = "Hashtag"
-		Hashtag.Parent = ChannelTitleFrame
+		Hashtag.Parent = SectorTitleFrame
 		Hashtag.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		Hashtag.BackgroundTransparency = 1.000
 		Hashtag.BorderSizePixel = 0
@@ -1832,85 +1832,85 @@ function Library:Window(text)
 		Hashtag.TextColor3 = Color3.fromRGB(114, 118, 125)
 		Hashtag.TextSize = 25.000
 
-		ChannelTitle.Name = "ChannelTitle"
-		ChannelTitle.Parent = ChannelTitleFrame
-		ChannelTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		ChannelTitle.BackgroundTransparency = 1.000
-		ChannelTitle.BorderSizePixel = 0
-		ChannelTitle.Position = UDim2.new(0.0862470865, 0, 0, 0)
-		ChannelTitle.Size = UDim2.new(0, 95, 0, 39)
-		ChannelTitle.Font = Enum.Font.GothamSemibold
-		ChannelTitle.Text = ""
-		ChannelTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
-		ChannelTitle.TextSize = 15.000
-		ChannelTitle.TextXAlignment = Enum.TextXAlignment.Left
+		SectorTitle.Name = "SectorTitle"
+		SectorTitle.Parent = SectorTitleFrame
+		SectorTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		SectorTitle.BackgroundTransparency = 1.000
+		SectorTitle.BorderSizePixel = 0
+		SectorTitle.Position = UDim2.new(0.0862470865, 0, 0, 0)
+		SectorTitle.Size = UDim2.new(0, 95, 0, 39)
+		SectorTitle.Font = Enum.Font.GothamSemibold
+		SectorTitle.Text = ""
+		SectorTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+		SectorTitle.TextSize = 15.000
+		SectorTitle.TextXAlignment = Enum.TextXAlignment.Left
 
-		ChannelContentFrame.Name = "ChannelContentFrame"
-		ChannelContentFrame.Parent = ServerFrame
-		ChannelContentFrame.BackgroundColor3 = Color3.fromRGB(54, 57, 63)
-		ChannelContentFrame.BorderSizePixel = 0
-		ChannelContentFrame.ClipsDescendants = true
-		ChannelContentFrame.Position = UDim2.new(0.294561088, 0, 0.106338218, 0)
-		ChannelContentFrame.Size = UDim2.new(0, 429, 0, 333)
+		SectorContentFrame.Name = "SectorContentFrame"
+		SectorContentFrame.Parent = TabFrame
+		SectorContentFrame.BackgroundColor3 = Color3.fromRGB(54, 57, 63)
+		SectorContentFrame.BorderSizePixel = 0
+		SectorContentFrame.ClipsDescendants = true
+		SectorContentFrame.Position = UDim2.new(0.294561088, 0, 0.106338218, 0)
+		SectorContentFrame.Size = UDim2.new(0, 429, 0, 333)
 
-		GlowChannel.Name = "GlowChannel"
-		GlowChannel.Parent = ChannelContentFrame
-		GlowChannel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		GlowChannel.BackgroundTransparency = 1.000
-		GlowChannel.BorderSizePixel = 0
-		GlowChannel.Position = UDim2.new(0, -33, 0, -91)
-		GlowChannel.Size = UDim2.new(1.06396091, 30, 0.228228226, 30)
-		GlowChannel.ZIndex = 0
-		GlowChannel.Image = "rbxassetid://4996891970"
-		GlowChannel.ImageColor3 = Color3.fromRGB(15, 15, 15)
-		GlowChannel.ScaleType = Enum.ScaleType.Slice
-		GlowChannel.SliceCenter = Rect.new(20, 20, 280, 280)
+		GlowSector.Name = "GlowSector"
+		GlowSector.Parent = SectorContentFrame
+		GlowSector.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		GlowSector.BackgroundTransparency = 1.000
+		GlowSector.BorderSizePixel = 0
+		GlowSector.Position = UDim2.new(0, -33, 0, -91)
+		GlowSector.Size = UDim2.new(1.06396091, 30, 0.228228226, 30)
+		GlowSector.ZIndex = 0
+		GlowSector.Image = "rbxassetid://4996891970"
+		GlowSector.ImageColor3 = Color3.fromRGB(15, 15, 15)
+		GlowSector.ScaleType = Enum.ScaleType.Slice
+		GlowSector.SliceCenter = Rect.new(20, 20, 280, 280)
 
-		ServerChannelHolder.Name = "ServerChannelHolder"
-		ServerChannelHolder.Parent = ServerContentFrame
-		ServerChannelHolder.Active = true
-		ServerChannelHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		ServerChannelHolder.BackgroundTransparency = 1.000
-		ServerChannelHolder.BorderSizePixel = 0
-		ServerChannelHolder.Position = UDim2.new(0.00535549596, 0, 0.0241984241, 0)
-		ServerChannelHolder.Selectable = false
-		ServerChannelHolder.Size = UDim2.new(0, 179, 0, 278)
-		ServerChannelHolder.CanvasSize = UDim2.new(0, 0, 0, 0)
-		ServerChannelHolder.ScrollBarThickness = 4
-		ServerChannelHolder.ScrollBarImageColor3 = Color3.fromRGB(18, 19, 21)
-		ServerChannelHolder.ScrollBarImageTransparency = 1
+		TabSectorHolder.Name = "TabSectorHolder"
+		TabSectorHolder.Parent = TabContentFrame
+		TabSectorHolder.Active = true
+		TabSectorHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TabSectorHolder.BackgroundTransparency = 1.000
+		TabSectorHolder.BorderSizePixel = 0
+		TabSectorHolder.Position = UDim2.new(0.00535549596, 0, 0.0241984241, 0)
+		TabSectorHolder.Selectable = false
+		TabSectorHolder.Size = UDim2.new(0, 179, 0, 278)
+		TabSectorHolder.CanvasSize = UDim2.new(0, 0, 0, 0)
+		TabSectorHolder.ScrollBarThickness = 4
+		TabSectorHolder.ScrollBarImageColor3 = Color3.fromRGB(18, 19, 21)
+		TabSectorHolder.ScrollBarImageTransparency = 1
 
-		ServerChannelHolderLayout.Name = "ServerChannelHolderLayout"
-		ServerChannelHolderLayout.Parent = ServerChannelHolder
-		ServerChannelHolderLayout.SortOrder = Enum.SortOrder.LayoutOrder
-		ServerChannelHolderLayout.Padding = UDim.new(0, 4)
+		TabSectorHolderLayout.Name = "TabSectorHolderLayout"
+		TabSectorHolderLayout.Parent = TabSectorHolder
+		TabSectorHolderLayout.SortOrder = Enum.SortOrder.LayoutOrder
+		TabSectorHolderLayout.Padding = UDim.new(0, 4)
 
-		ServerChannelHolderPadding.Name = "ServerChannelHolderPadding"
-		ServerChannelHolderPadding.Parent = ServerChannelHolder
-		ServerChannelHolderPadding.PaddingLeft = UDim.new(0, 9)
+		TabSectorHolderPadding.Name = "TabSectorHolderPadding"
+		TabSectorHolderPadding.Parent = TabSectorHolder
+		TabSectorHolderPadding.PaddingLeft = UDim.new(0, 9)
 		
-		ServerChannelHolder.MouseEnter:Connect(function()
-			ServerChannelHolder.ScrollBarImageTransparency = 0
+		TabSectorHolder.MouseEnter:Connect(function()
+			TabSectorHolder.ScrollBarImageTransparency = 0
 		end)
 		
-		ServerChannelHolder.MouseLeave:Connect(function()
-			ServerChannelHolder.ScrollBarImageTransparency = 1
+		TabSectorHolder.MouseLeave:Connect(function()
+			TabSectorHolder.ScrollBarImageTransparency = 1
 		end)
 
-		Server.MouseEnter:Connect(
+		Tab.MouseEnter:Connect(
 			function()
-				if currentservertoggled ~= Server.Name then
+				if currentTabtoggled ~= Tab.Name then
 					TweenService:Create(
-						Server,
+						Tab,
 						TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 						{BackgroundColor3 = Color3.fromRGB(114, 137, 228)}
 					):Play()
 					TweenService:Create(
-						ServerBtnCorner,
+						TabBtnCorner,
 						TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 						{CornerRadius = UDim.new(0, 15)}
 					):Play()
-					ServerWhiteFrame:TweenSize(
+					TabWhiteFrame:TweenSize(
 						UDim2.new(0, 11, 0, 27),
 						Enum.EasingDirection.Out,
 						Enum.EasingStyle.Quart,
@@ -1921,20 +1921,20 @@ function Library:Window(text)
 			end
 		)
 
-		Server.MouseLeave:Connect(
+		Tab.MouseLeave:Connect(
 			function()
-				if currentservertoggled ~= Server.Name then
+				if currentTabtoggled ~= Tab.Name then
 					TweenService:Create(
-						Server,
+						Tab,
 						TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 						{BackgroundColor3 = Color3.fromRGB(47, 49, 54)}
 					):Play()
 					TweenService:Create(
-						ServerBtnCorner,
+						TabBtnCorner,
 						TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 						{CornerRadius = UDim.new(1, 0)}
 					):Play()
-					ServerWhiteFrame:TweenSize(
+					TabWhiteFrame:TweenSize(
 						UDim2.new(0, 11, 0, 10),
 						Enum.EasingDirection.Out,
 						Enum.EasingStyle.Quart,
@@ -1945,16 +1945,16 @@ function Library:Window(text)
 			end
 		)
 
-		Server.MouseButton1Click:Connect(
+		Tab.MouseButton1Click:Connect(
 			function()
-				currentservertoggled = Server.Name
-				for i, v in next, ServersHolder:GetChildren() do
-					if v.Name == "ServerFrame" then
+				currentTabtoggled = Tab.Name
+				for i, v in next, TabsHolder:GetChildren() do
+					if v.Name == "TabFrame" then
 						v.Visible = false
 					end
-					ServerFrame.Visible = true
+					TabFrame.Visible = true
 				end
-				for i, v in next, ServersHold:GetChildren() do
+				for i, v in next, TabsHold:GetChildren() do
 					if v.ClassName == "TextButton" then
 						TweenService:Create(
 							v,
@@ -1962,28 +1962,28 @@ function Library:Window(text)
 							{BackgroundColor3 = Color3.fromRGB(47, 49, 54)}
 						):Play()
 						TweenService:Create(
-							Server,
+							Tab,
 							TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 							{BackgroundColor3 = Color3.fromRGB(114, 137, 228)}
 						):Play()
 						TweenService:Create(
-							v.ServerCorner,
+							v.TabCorner,
 							TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 							{CornerRadius = UDim.new(1, 0)}
 						):Play()
 						TweenService:Create(
-							ServerBtnCorner,
+							TabBtnCorner,
 							TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 							{CornerRadius = UDim.new(0, 15)}
 						):Play()
-						v.ServerWhiteFrame:TweenSize(
+						v.TabWhiteFrame:TweenSize(
 							UDim2.new(0, 11, 0, 10),
 							Enum.EasingDirection.Out,
 							Enum.EasingStyle.Quart,
 							.3,
 							true
 						)
-						ServerWhiteFrame:TweenSize(
+						TabWhiteFrame:TweenSize(
 							UDim2.new(0, 11, 0, 46),
 							Enum.EasingDirection.Out,
 							Enum.EasingStyle.Quart,
@@ -1996,155 +1996,155 @@ function Library:Window(text)
 		)
 
 		if img == "" then
-			Server.Text = string.sub(text, 1, 1)
+			Tab.Text = string.sub(text, 1, 1)
 		else
-			ServerIco.Image = img
+			TabIco.Image = img
 		end
 
 		if fs == false then
 			TweenService:Create(
-				Server,
+				Tab,
 				TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 				{BackgroundColor3 = Color3.fromRGB(114, 137, 228)}
 			):Play()
 			TweenService:Create(
-				ServerBtnCorner,
+				TabBtnCorner,
 				TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 				{CornerRadius = UDim.new(0, 15)}
 			):Play()
-			ServerWhiteFrame:TweenSize(
+			TabWhiteFrame:TweenSize(
 				UDim2.new(0, 11, 0, 46),
 				Enum.EasingDirection.Out,
 				Enum.EasingStyle.Quart,
 				.3,
 				true
 			)
-			ServerFrame.Visible = true
-			Server.Name = text .. "Server"
-			currentservertoggled = Server.Name
+			TabFrame.Visible = true
+			Tab.Name = text .. "Tab"
+			currentTabtoggled = Tab.Name
 			fs = true
 		end
-		local ChannelHold = {}
-		function ChannelHold:Channel(text)
-			local ChannelBtn = Instance.new("TextButton")
-			local ChannelBtnCorner = Instance.new("UICorner")
-			local ChannelBtnHashtag = Instance.new("TextLabel")
-			local ChannelBtnTitle = Instance.new("TextLabel")
+		local SectorHold = {}
+		function SectorHold:Sector(text)
+			local SectorBtn = Instance.new("TextButton")
+			local SectorBtnCorner = Instance.new("UICorner")
+			local SectorBtnHashtag = Instance.new("TextLabel")
+			local SectorBtnTitle = Instance.new("TextLabel")
 
-			ChannelBtn.Name = text .. "ChannelBtn"
-			ChannelBtn.Parent = ServerChannelHolder
-			ChannelBtn.BackgroundColor3 = Color3.fromRGB(47, 49, 54)
-			ChannelBtn.BorderSizePixel = 0
-			ChannelBtn.Position = UDim2.new(0.24118948, 0, 0.578947365, 0)
-			ChannelBtn.Size = UDim2.new(0, 160, 0, 30)
-			ChannelBtn.AutoButtonColor = false
-			ChannelBtn.Font = Enum.Font.SourceSans
-			ChannelBtn.Text = ""
-			ChannelBtn.TextColor3 = Color3.fromRGB(0, 0, 0)
-			ChannelBtn.TextSize = 14.000
+			SectorBtn.Name = text .. "SectorBtn"
+			SectorBtn.Parent = TabSectorHolder
+			SectorBtn.BackgroundColor3 = Color3.fromRGB(47, 49, 54)
+			SectorBtn.BorderSizePixel = 0
+			SectorBtn.Position = UDim2.new(0.24118948, 0, 0.578947365, 0)
+			SectorBtn.Size = UDim2.new(0, 160, 0, 30)
+			SectorBtn.AutoButtonColor = false
+			SectorBtn.Font = Enum.Font.SourceSans
+			SectorBtn.Text = ""
+			SectorBtn.TextColor3 = Color3.fromRGB(0, 0, 0)
+			SectorBtn.TextSize = 14.000
 
-			ChannelBtnCorner.CornerRadius = UDim.new(0, 6)
-			ChannelBtnCorner.Name = "ChannelBtnCorner"
-			ChannelBtnCorner.Parent = ChannelBtn
+			SectorBtnCorner.CornerRadius = UDim.new(0, 6)
+			SectorBtnCorner.Name = "SectorBtnCorner"
+			SectorBtnCorner.Parent = SectorBtn
 
-			ChannelBtnHashtag.Name = "ChannelBtnHashtag"
-			ChannelBtnHashtag.Parent = ChannelBtn
-			ChannelBtnHashtag.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			ChannelBtnHashtag.BackgroundTransparency = 1.000
-			ChannelBtnHashtag.BorderSizePixel = 0
-			ChannelBtnHashtag.Position = UDim2.new(0.0279720314, 0, 0, 0)
-			ChannelBtnHashtag.Size = UDim2.new(0, 24, 0, 30)
-			ChannelBtnHashtag.Font = Enum.Font.Gotham
-			ChannelBtnHashtag.Text = "#"
-			ChannelBtnHashtag.TextColor3 = Color3.fromRGB(114, 118, 125)
-			ChannelBtnHashtag.TextSize = 21.000
+			SectorBtnHashtag.Name = "SectorBtnHashtag"
+			SectorBtnHashtag.Parent = SectorBtn
+			SectorBtnHashtag.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			SectorBtnHashtag.BackgroundTransparency = 1.000
+			SectorBtnHashtag.BorderSizePixel = 0
+			SectorBtnHashtag.Position = UDim2.new(0.0279720314, 0, 0, 0)
+			SectorBtnHashtag.Size = UDim2.new(0, 24, 0, 30)
+			SectorBtnHashtag.Font = Enum.Font.Gotham
+			SectorBtnHashtag.Text = "#"
+			SectorBtnHashtag.TextColor3 = Color3.fromRGB(114, 118, 125)
+			SectorBtnHashtag.TextSize = 21.000
 
-			ChannelBtnTitle.Name = "ChannelBtnTitle"
-			ChannelBtnTitle.Parent = ChannelBtn
-			ChannelBtnTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			ChannelBtnTitle.BackgroundTransparency = 1.000
-			ChannelBtnTitle.BorderSizePixel = 0
-			ChannelBtnTitle.Position = UDim2.new(0.173747092, 0, -0.166666672, 0)
-			ChannelBtnTitle.Size = UDim2.new(0, 95, 0, 39)
-			ChannelBtnTitle.Font = Enum.Font.Gotham
-			ChannelBtnTitle.Text = text
-			ChannelBtnTitle.TextColor3 = Color3.fromRGB(114, 118, 125)
-			ChannelBtnTitle.TextSize = 14.000
-			ChannelBtnTitle.TextXAlignment = Enum.TextXAlignment.Left
-			ServerChannelHolder.CanvasSize = UDim2.new(0, 0, 0, ServerChannelHolderLayout.AbsoluteContentSize.Y)
+			SectorBtnTitle.Name = "SectorBtnTitle"
+			SectorBtnTitle.Parent = SectorBtn
+			SectorBtnTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			SectorBtnTitle.BackgroundTransparency = 1.000
+			SectorBtnTitle.BorderSizePixel = 0
+			SectorBtnTitle.Position = UDim2.new(0.173747092, 0, -0.166666672, 0)
+			SectorBtnTitle.Size = UDim2.new(0, 95, 0, 39)
+			SectorBtnTitle.Font = Enum.Font.Gotham
+			SectorBtnTitle.Text = text
+			SectorBtnTitle.TextColor3 = Color3.fromRGB(114, 118, 125)
+			SectorBtnTitle.TextSize = 14.000
+			SectorBtnTitle.TextXAlignment = Enum.TextXAlignment.Left
+			TabSectorHolder.CanvasSize = UDim2.new(0, 0, 0, TabSectorHolderLayout.AbsoluteContentSize.Y)
 
-			local ChannelHolder = Instance.new("ScrollingFrame")
-			local ChannelHolderLayout = Instance.new("UIListLayout")
+			local SectorHolder = Instance.new("ScrollingFrame")
+			local SectorHolderLayout = Instance.new("UIListLayout")
 
-			ChannelHolder.Name = "ChannelHolder"
-			ChannelHolder.Parent = ChannelContentFrame
-			ChannelHolder.Active = true
-			ChannelHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			ChannelHolder.BackgroundTransparency = 1.000
-			ChannelHolder.BorderSizePixel = 0
-			ChannelHolder.Position = UDim2.new(0.0360843192, 0, 0.0241984241, 0)
-			ChannelHolder.Size = UDim2.new(0, 412, 0, 314)
-			ChannelHolder.ScrollBarThickness = 6
-			ChannelHolder.CanvasSize = UDim2.new(0,0,0,0)
-			ChannelHolder.ScrollBarImageTransparency = 0
-			ChannelHolder.ScrollBarImageColor3 = Color3.fromRGB(18, 19, 21)
-			ChannelHolder.Visible = false
-			ChannelHolder.ClipsDescendants = false
+			SectorHolder.Name = "SectorHolder"
+			SectorHolder.Parent = SectorContentFrame
+			SectorHolder.Active = true
+			SectorHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			SectorHolder.BackgroundTransparency = 1.000
+			SectorHolder.BorderSizePixel = 0
+			SectorHolder.Position = UDim2.new(0.0360843192, 0, 0.0241984241, 0)
+			SectorHolder.Size = UDim2.new(0, 412, 0, 314)
+			SectorHolder.ScrollBarThickness = 6
+			SectorHolder.CanvasSize = UDim2.new(0,0,0,0)
+			SectorHolder.ScrollBarImageTransparency = 0
+			SectorHolder.ScrollBarImageColor3 = Color3.fromRGB(18, 19, 21)
+			SectorHolder.Visible = false
+			SectorHolder.ClipsDescendants = false
 
-			ChannelHolderLayout.Name = "ChannelHolderLayout"
-			ChannelHolderLayout.Parent = ChannelHolder
-			ChannelHolderLayout.SortOrder = Enum.SortOrder.LayoutOrder
-			ChannelHolderLayout.Padding = UDim.new(0, 6)
+			SectorHolderLayout.Name = "SectorHolderLayout"
+			SectorHolderLayout.Parent = SectorHolder
+			SectorHolderLayout.SortOrder = Enum.SortOrder.LayoutOrder
+			SectorHolderLayout.Padding = UDim.new(0, 6)
 			
-			ChannelBtn.MouseEnter:Connect(function()
-				if currentchanneltoggled ~= ChannelBtn.Name then
-				ChannelBtn.BackgroundColor3 = Color3.fromRGB(52,55,60)
-					ChannelBtnTitle.TextColor3 = Color3.fromRGB(220,221,222)
+			SectorBtn.MouseEnter:Connect(function()
+				if currentSectortoggled ~= SectorBtn.Name then
+				SectorBtn.BackgroundColor3 = Color3.fromRGB(52,55,60)
+					SectorBtnTitle.TextColor3 = Color3.fromRGB(220,221,222)
 				end
 			end)
 			
-			ChannelBtn.MouseLeave:Connect(function()
-				if currentchanneltoggled ~= ChannelBtn.Name then
-				ChannelBtn.BackgroundColor3 = Color3.fromRGB(47, 49, 54)
-				ChannelBtnTitle.TextColor3 = Color3.fromRGB(114, 118, 125)
+			SectorBtn.MouseLeave:Connect(function()
+				if currentSectortoggled ~= SectorBtn.Name then
+				SectorBtn.BackgroundColor3 = Color3.fromRGB(47, 49, 54)
+				SectorBtnTitle.TextColor3 = Color3.fromRGB(114, 118, 125)
 				end
 			end)
 			
-			ChannelBtn.MouseButton1Click:Connect(function()
-				for i, v in next, ChannelContentFrame:GetChildren() do
-					if v.Name == "ChannelHolder" then
+			SectorBtn.MouseButton1Click:Connect(function()
+				for i, v in next, SectorContentFrame:GetChildren() do
+					if v.Name == "SectorHolder" then
 						v.Visible = false
 					end
-					ChannelHolder.Visible = true
+					SectorHolder.Visible = true
 				end
-				for i, v in next, ServerChannelHolder:GetChildren() do
+				for i, v in next, TabSectorHolder:GetChildren() do
 					if v.ClassName == "TextButton" then
 						v.BackgroundColor3 = Color3.fromRGB(47, 49, 54)
-						v.ChannelBtnTitle.TextColor3 = Color3.fromRGB(114, 118, 125)
+						v.SectorBtnTitle.TextColor3 = Color3.fromRGB(114, 118, 125)
 					end
-					ServerFrame.Visible = true
+					TabFrame.Visible = true
 				end
-				ChannelTitle.Text = text
-				ChannelBtn.BackgroundColor3 = Color3.fromRGB(57,60,67)
-				ChannelBtnTitle.TextColor3 = Color3.fromRGB(255,255,255)
-				currentchanneltoggled = ChannelBtn.Name
+				SectorTitle.Text = text
+				SectorBtn.BackgroundColor3 = Color3.fromRGB(57,60,67)
+				SectorBtnTitle.TextColor3 = Color3.fromRGB(255,255,255)
+				currentSectortoggled = SectorBtn.Name
 			end)
 			
 			if fc == false then
 				fc = true
-				ChannelTitle.Text = text
-				ChannelBtn.BackgroundColor3 = Color3.fromRGB(57,60,67)
-				ChannelBtnTitle.TextColor3 = Color3.fromRGB(255,255,255)
-				currentchanneltoggled = ChannelBtn.Name
-				ChannelHolder.Visible = true
+				SectorTitle.Text = text
+				SectorBtn.BackgroundColor3 = Color3.fromRGB(57,60,67)
+				SectorBtnTitle.TextColor3 = Color3.fromRGB(255,255,255)
+				currentSectortoggled = SectorBtn.Name
+				SectorHolder.Visible = true
 			end
-			local ChannelContent = {}
-			function ChannelContent:Button(text,callback)
+			local SectorContent = {}
+			function SectorContent:Button(text,callback)
 				local Button = Instance.new("TextButton")
 				local ButtonCorner = Instance.new("UICorner")
 
 				Button.Name = "Button"
-				Button.Parent = ChannelHolder
+				Button.Parent = SectorHolder
 				Button.BackgroundColor3 = Color3.fromRGB(114, 137, 228)
 				Button.Size = UDim2.new(0, 401, 0, 30)
 				Button.AutoButtonColor = false
@@ -2182,9 +2182,9 @@ function Library:Window(text)
 						{BackgroundColor3 = Color3.fromRGB(114, 137, 228)}
 					):Play()
 				end)
-				ChannelHolder.CanvasSize = UDim2.new(0,0,0,ChannelHolderLayout.AbsoluteContentSize.Y)
+				SectorHolder.CanvasSize = UDim2.new(0,0,0,SectorHolderLayout.AbsoluteContentSize.Y)
 			end
-			function ChannelContent:Toggle(text,default,callback)
+			function SectorContent:Toggle(text,default,callback)
 				local toggled = false
 				local Toggle = Instance.new("TextButton")
 				local ToggleTitle = Instance.new("TextLabel")
@@ -2195,7 +2195,7 @@ function Library:Window(text)
 				local Icon = Instance.new("ImageLabel")
 
 				Toggle.Name = "Toggle"
-				Toggle.Parent = ChannelHolder
+				Toggle.Parent = SectorHolder
 				Toggle.BackgroundColor3 = Color3.fromRGB(54, 57, 63)
 				Toggle.BorderSizePixel = 0
 				Toggle.Position = UDim2.new(0.261979163, 0, 0.190789461, 0)
@@ -2303,10 +2303,10 @@ function Library:Window(text)
 					pcall(callback, toggled)
 				end)
 				
-				ChannelHolder.CanvasSize = UDim2.new(0,0,0,ChannelHolderLayout.AbsoluteContentSize.Y)
+				SectorHolder.CanvasSize = UDim2.new(0,0,0,SectorHolderLayout.AbsoluteContentSize.Y)
 			end
 			
-			function ChannelContent:Slider(text, min, max, start, callback)
+			function SectorContent:Slider(text, min, max, start, callback)
 				local SliderFunc = {}
 				local dragging = false
 				local Slider = Instance.new("TextButton")
@@ -2325,7 +2325,7 @@ function Library:Window(text)
 
 
 				Slider.Name = "Slider"
-				Slider.Parent = ChannelHolder
+				Slider.Parent = SectorHolder
 				Slider.BackgroundColor3 = Color3.fromRGB(54, 57, 63)
 				Slider.BorderSizePixel = 0
 				Slider.Position = UDim2.new(0, 0, 0.216560602, 0)
@@ -2484,15 +2484,15 @@ function Library:Window(text)
 					pcall(callback, tochange)
 				end
 				
-				ChannelHolder.CanvasSize = UDim2.new(0,0,0,ChannelHolderLayout.AbsoluteContentSize.Y)
+				SectorHolder.CanvasSize = UDim2.new(0,0,0,SectorHolderLayout.AbsoluteContentSize.Y)
 				return SliderFunc
 			end
-			function ChannelContent:Seperator()
+			function SectorContent:Seperator()
 				local Seperator1 = Instance.new("Frame")
 				local Seperator2 = Instance.new("Frame")
 
 				Seperator1.Name = "Seperator1"
-				Seperator1.Parent = ChannelHolder
+				Seperator1.Parent = SectorHolder
 				Seperator1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				Seperator1.BackgroundTransparency = 1.000
 				Seperator1.Position = UDim2.new(0, 0, 0.350318581, 0)
@@ -2504,9 +2504,9 @@ function Library:Window(text)
 				Seperator2.BorderSizePixel = 0
 				Seperator2.Position = UDim2.new(0, 0, 0, 4)
 				Seperator2.Size = UDim2.new(0, 401, 0, 1)
-				ChannelHolder.CanvasSize = UDim2.new(0,0,0,ChannelHolderLayout.AbsoluteContentSize.Y)
+				SectorHolder.CanvasSize = UDim2.new(0,0,0,SectorHolderLayout.AbsoluteContentSize.Y)
 			end
-			function ChannelContent:Dropdown(text, list, callback)
+			function SectorContent:Dropdown(text, list, callback)
 				local DropFunc = {}
 				local itemcount = 0
 				local framesize = 0
@@ -2522,7 +2522,7 @@ function Library:Window(text)
 				local DropdownFrameBtn = Instance.new("TextButton")
 
 				Dropdown.Name = "Dropdown"
-				Dropdown.Parent = ChannelHolder
+				Dropdown.Parent = SectorHolder
 				Dropdown.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				Dropdown.BackgroundTransparency = 1.000
 				Dropdown.Position = UDim2.new(0.0796874985, 0, 0.445175439, 0)
@@ -2660,13 +2660,13 @@ function Library:Window(text)
 						DropdownFrameMain.Visible = true
 						DropdownFrameMainOutline.Visible = true
 						Dropdown.Size = UDim2.new(0, 403, 0, 73 + DropdownFrameMainOutline.AbsoluteSize.Y)
-						ChannelHolder.CanvasSize = UDim2.new(0,0,0,ChannelHolderLayout.AbsoluteContentSize.Y)
+						SectorHolder.CanvasSize = UDim2.new(0,0,0,SectorHolderLayout.AbsoluteContentSize.Y)
 						
 					else
 						Dropdown.Size = UDim2.new(0, 403, 0, 73)
 						DropdownFrameMain.Visible = false
 						DropdownFrameMainOutline.Visible = false
-						ChannelHolder.CanvasSize = UDim2.new(0,0,0,ChannelHolderLayout.AbsoluteContentSize.Y)
+						SectorHolder.CanvasSize = UDim2.new(0,0,0,SectorHolderLayout.AbsoluteContentSize.Y)
 					end
 					DropTog = not DropTog
 				end)
@@ -2730,7 +2730,7 @@ function Library:Window(text)
 						Dropdown.Size = UDim2.new(0, 403, 0, 73)
 						DropdownFrameMain.Visible = false
 						DropdownFrameMainOutline.Visible = false
-						ChannelHolder.CanvasSize = UDim2.new(0,0,0,ChannelHolderLayout.AbsoluteContentSize.Y)
+						SectorHolder.CanvasSize = UDim2.new(0,0,0,SectorHolderLayout.AbsoluteContentSize.Y)
 						DropTog = not DropTog
 					end)
 					
@@ -2741,7 +2741,7 @@ function Library:Window(text)
 					DropdownFrameMainOutline.Size = UDim2.new(0, 396, 0, framesize + 10)
 				end
 				
-				ChannelHolder.CanvasSize = UDim2.new(0,0,0,ChannelHolderLayout.AbsoluteContentSize.Y)
+				SectorHolder.CanvasSize = UDim2.new(0,0,0,SectorHolderLayout.AbsoluteContentSize.Y)
 				
 				function DropFunc:Clear()
 					for i,v in next, DropItemHolder:GetChildren() do
@@ -2760,7 +2760,7 @@ function Library:Window(text)
 					Dropdown.Size = UDim2.new(0, 403, 0, 73)
 					DropdownFrameMain.Visible = false
 					DropdownFrameMainOutline.Visible = false
-					ChannelHolder.CanvasSize = UDim2.new(0,0,0,ChannelHolderLayout.AbsoluteContentSize.Y)
+					SectorHolder.CanvasSize = UDim2.new(0,0,0,SectorHolderLayout.AbsoluteContentSize.Y)
 				end
 				
 				function DropFunc:Add(textadd)
@@ -2821,7 +2821,7 @@ function Library:Window(text)
 						Dropdown.Size = UDim2.new(0, 403, 0, 73)
 						DropdownFrameMain.Visible = false
 						DropdownFrameMainOutline.Visible = false
-						ChannelHolder.CanvasSize = UDim2.new(0,0,0,ChannelHolderLayout.AbsoluteContentSize.Y)
+						SectorHolder.CanvasSize = UDim2.new(0,0,0,SectorHolderLayout.AbsoluteContentSize.Y)
 						DropTog = not DropTog
 					end)
 
@@ -2833,7 +2833,7 @@ function Library:Window(text)
 				end
 				return DropFunc
 			end
-			function ChannelContent:Colorpicker(text, preset, callback)
+			function SectorContent:Colorpicker(text, preset, callback)
 				local OldToggleColor = Color3.fromRGB(0, 0, 0)
 				local OldColor = Color3.fromRGB(0, 0, 0)
 				local OldColorSelectionPosition = nil
@@ -2861,7 +2861,7 @@ function Library:Window(text)
 				local PresetClrCorner = Instance.new("UICorner")
 
 				Colorpicker.Name = "Colorpicker"
-				Colorpicker.Parent = ChannelHolder
+				Colorpicker.Parent = SectorHolder
 				Colorpicker.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				Colorpicker.BackgroundTransparency = 1.000
 				Colorpicker.Position = UDim2.new(0.0895741582, 0, 0.474232763, 0)
@@ -3063,10 +3063,10 @@ function Library:Window(text)
 					end
 				)
 				
-				ChannelHolder.CanvasSize = UDim2.new(0,0,0,ChannelHolderLayout.AbsoluteContentSize.Y)
+				SectorHolder.CanvasSize = UDim2.new(0,0,0,SectorHolderLayout.AbsoluteContentSize.Y)
 			end
 			
-			function ChannelContent:Textbox(text, placetext, disapper, callback)
+			function SectorContent:Textbox(text, placetext, disapper, callback)
 				local Textbox = Instance.new("Frame")
 				local TextboxTitle = Instance.new("TextLabel")
 				local TextboxFrameOutline = Instance.new("Frame")
@@ -3076,7 +3076,7 @@ function Library:Window(text)
 				local TextBox = Instance.new("TextBox")
 
 				Textbox.Name = "Textbox"
-				Textbox.Parent = ChannelHolder
+				Textbox.Parent = SectorHolder
 				Textbox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				Textbox.BackgroundTransparency = 1.000
 				Textbox.Position = UDim2.new(0.0796874985, 0, 0.445175439, 0)
@@ -3154,15 +3154,15 @@ function Library:Window(text)
 					end
 				end)
 				
-				ChannelHolder.CanvasSize = UDim2.new(0,0,0,ChannelHolderLayout.AbsoluteContentSize.Y)
+				SectorHolder.CanvasSize = UDim2.new(0,0,0,SectorHolderLayout.AbsoluteContentSize.Y)
 			end
 			
-			function ChannelContent:Label(text)
+			function SectorContent:Label(text)
 				local Label = Instance.new("TextButton")
 				local LabelTitle = Instance.new("TextLabel")
 
 				Label.Name = "Label"
-				Label.Parent = ChannelHolder
+				Label.Parent = SectorHolder
 				Label.BackgroundColor3 = Color3.fromRGB(54, 57, 63)
 				Label.BorderSizePixel = 0
 				Label.Position = UDim2.new(0.261979163, 0, 0.190789461, 0)
@@ -3185,17 +3185,17 @@ function Library:Window(text)
 				LabelTitle.TextSize = 14.000
 				LabelTitle.TextXAlignment = Enum.TextXAlignment.Left
 				
-				ChannelHolder.CanvasSize = UDim2.new(0,0,0,ChannelHolderLayout.AbsoluteContentSize.Y)
+				SectorHolder.CanvasSize = UDim2.new(0,0,0,SectorHolderLayout.AbsoluteContentSize.Y)
 			end
 			
-			function ChannelContent:Bind(text, presetbind, callback)
+			function SectorContent:Bind(text, presetbind, callback)
 				local Key = presetbind.Name
 				local Keybind = Instance.new("TextButton")
 				local KeybindTitle = Instance.new("TextLabel")
 				local KeybindText = Instance.new("TextLabel")
 
 				Keybind.Name = "Keybind"
-				Keybind.Parent = ChannelHolder
+				Keybind.Parent = SectorHolder
 				Keybind.BackgroundColor3 = Color3.fromRGB(54, 57, 63)
 				Keybind.BorderSizePixel = 0
 				Keybind.Position = UDim2.new(0.261979163, 0, 0.190789461, 0)
@@ -3248,14 +3248,14 @@ function Library:Window(text)
 					end
 				end
 				)
-				ChannelHolder.CanvasSize = UDim2.new(0,0,0,ChannelHolderLayout.AbsoluteContentSize.Y)
+				SectorHolder.CanvasSize = UDim2.new(0,0,0,SectorHolderLayout.AbsoluteContentSize.Y)
 			end
 			
-			return ChannelContent
+			return SectorContent
 		end
 		
-		return ChannelHold
+		return SectorHold
 	end
-	return ServerHold
+	return TabHold
 end
 return Library
