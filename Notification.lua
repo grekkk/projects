@@ -11,7 +11,7 @@
                 - String - SoundId: Use "No" instead of an String
                 - Color3 - Accent: Use "No" instead of an Color3
     --//            Notification Library by grek          --\\
-                  Feel Free to put this in loadstring!
+                   You can use this in loadstring!
 loadstring(game:HttpGet('https://raw.githubusercontent.com/grekkk/projects/main/Notification.lua'))()
 ]]
 
